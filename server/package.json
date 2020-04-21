@@ -1,0 +1,21 @@
+{
+  "name": "graphql-server",
+  "version": "1.0.0",
+  "description": "GraphQl Server",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "test"
+  },
+  "author": "Shovan",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
+    "prisma-client-lib": "^1.34.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
