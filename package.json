@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "apollo-boost": "^0.4.7",
     "apollo-link-context": "^1.0.20",
+    "apollo-link-ws": "^1.0.20",
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "node-sass": "^4.13.1",
@@ -17,10 +18,11 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "subscriptions-transport-ws": "^0.9.16"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start dev",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
