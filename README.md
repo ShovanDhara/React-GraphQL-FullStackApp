@@ -1,7 +1,7 @@
 # React GraphQL Full Stack Application
 
 This is a Full Stack application based on React, GraphQl where you can do Query, Mutation, Authentication, Sorting, Pagination, Filtering on a GraphQL database.
-GraphQl Server is created using 'graphql-yoga' which is an Express JS based Node Server 
+GraphQl Server is created using 'graphql-yoga' which is an Express JS based Node Server. The application also implements some error handling best practices. 
 
 ## Architecture
 Here’s an overview of the architecture that’s used when building GraphQL servers with Prisma:
