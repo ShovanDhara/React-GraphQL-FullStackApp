@@ -95,7 +95,7 @@ class LinkList extends Component {
       return data.feed.links
     }
     const rankedLinks = data.feed.links.slice()
-    rankedLinks.sort((l1, l2) => l2.votes.length - l1.votes.length)
+    rankedLinks.sort((a, b) => b.votes.length - a.votes.length)
     return rankedLinks
   }
   _getQueryVariables = () => {
