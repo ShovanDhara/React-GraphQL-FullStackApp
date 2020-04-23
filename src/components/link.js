@@ -3,6 +3,9 @@ import { AUTH_TOKEN } from '../constant'
 import { timeDifferenceForDate } from '../utils'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
 const VOTE_MUTATION = gql`
   mutation VoteMutation($linkId: ID!) {
@@ -36,12 +39,31 @@ class Link extends Component {
               update={(store, { data: { vote } }) =>
                 this.props.updateStoreAfterVote(store, vote, this.props.link.id)
               }
-            >
-              {voteMutation => (
-                <div className="ml1 gray f11 upvote" onClick={voteMutation}>
-                  ▲
-                </div>
-              )}
+              onError={error => {
+                //console.log(error)
+              }}>
+              {(voteMutation, { loading, error }) => {
+                if (error) {
+                  error.graphQLErrors.map(({ message }, i) => (
+                    store.addNotification({
+                      title: 'Dropbox',
+                      message: `${message}`,
+                      type: 'danger',
+                      container: 'bottom-left',
+                      animationIn: ["animated", "fadeIn"],
+                      animationOut: ["animated", "fadeOut"],
+                      dismiss: {
+                        duration: 2000
+                      }
+                    })
+                  ))
+                }
+                return (
+                  <div className="ml1 gray f11 upvote" onClick={voteMutation}>
+                    ▲
+                  </div>
+                )
+              }}
             </Mutation>
           )}
         </div>

@@ -13,6 +13,7 @@ import { AUTH_TOKEN } from './constant'
 import { split } from 'apollo-link'
 import { WebSocketLink } from 'apollo-link-ws'
 import { getMainDefinition } from 'apollo-utilities'
+import { onError } from "apollo-link-error";
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem(AUTH_TOKEN)
@@ -37,6 +38,16 @@ const wsLink = new WebSocketLink({
     }
   }
 })
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors)
+    graphQLErrors.map(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Path: ${path}`,
+      ),
+    );
+
+  if (networkError) console.log(`[Network error]: ${networkError}`);
+});
 /*
 The subscriptions endpoint in this case is similar to the HTTP endpoint, 
 except that it uses the ws instead of http protocol. Notice that you’re also authenticating 
@@ -54,12 +65,12 @@ const link = split(
     return kind === 'OperationDefinition' && operation === 'subscription'
   },
   wsLink,
-  authLink.concat(httpLink)
+  errorLink.concat(authLink.concat(httpLink)),
 )
 
 const client = new ApolloClient({
   link,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 })
 
 ReactDOM.render(

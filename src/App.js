@@ -6,10 +6,12 @@ import Login from './components/login'
 import Search from './components/search'
 import './styles/App.css'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import ReactNotifications from 'react-notifications-component';
 
 function App() {
   return (
     <div className="center w85">
+      <ReactNotifications />
       <Header />
       <div className="ph3 pv1 background-gray">
         <Switch>

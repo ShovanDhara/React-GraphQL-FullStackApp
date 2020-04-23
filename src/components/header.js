@@ -26,7 +26,7 @@ class Header extends Component {
                             <div className="ml1">|</div>
                             <Link to="/create" className="ml1 no-underline black">
                                 submit
-                  </Link>
+                            </Link>
                         </div>
                     )}
                 </div>
