@@ -95,5 +95,13 @@ query {
   }
 }
 ```
+## Client Side Flow
+The client side of this application is build upon React using Apollo Client for GraphQL Connection
+In root level run
+```bash
+npm install
+npm start
+```
 
+*Point to localhost:3000 in your favorite browser*
 
