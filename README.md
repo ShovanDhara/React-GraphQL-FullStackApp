@@ -45,7 +45,7 @@ mutation {
 mutation {
   login(
     email: "shovan.dhara@gmail.com"
-    password: "Cancer2233!"
+    password: "uknowwhat"
   ) {
     token
     user {
